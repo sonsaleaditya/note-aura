@@ -25,7 +25,7 @@ app.use('/api/v1/notes',noteRoute);
 app.use('/api/v1/contact-us',contactRoute);
 
 app.get('/',(req,res)=>{
-    res.send('hii');
+    res.send('hello from server');
 })
 
 
