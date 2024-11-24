@@ -45,8 +45,12 @@
 /* Note title styling */
 .note-card h3 {
   font-size: 1.8rem;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-weight: bold;
+  color: white;
+ 
+  text-transform: uppercase;
+  text-align: center;
 }
 
 /* Note content styling */
