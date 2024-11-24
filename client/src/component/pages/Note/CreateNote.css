@@ -1,0 +1,121 @@
+/* Wrapper for CreateNote to align it */
+.create-note-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  background-color: #1c1c1c; /* Background color */
+  padding: 20px; /* Padding around the component */
+}
+
+/* Specific container for CreateNote component */
+.create-note-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #1c1c1c; /* Dark card background */
+  color: #ffffff; /* White text */
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+/* Hover effect for the card */
+.create-note-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); /* Deeper shadow on hover */
+}
+
+/* Component heading */
+.create-note-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Form styling */
+.create-note-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for each form group */
+.create-note-container .form-group {
+  margin-bottom: 20px;
+}
+
+.create-note-container .form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #cccccc; /* Slightly dimmer text for labels */
+}
+
+.create-note-container .form-group input,
+.create-note-container .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #444; /* Border for inputs */
+  border-radius: 8px;
+  background-color: #2b2b2b; /* Input field background */
+  color: #ffffff; /* White text */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.create-note-container .form-group input:focus,
+.create-note-container .form-group textarea:focus {
+  border-color: white; /* White focus border */
+  outline: none;
+}
+
+/* Button styling */
+.create-note-container .btn-create-note {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000000; /* Black text */
+  background-color: white; /* White background for the button */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-note-container .btn-create-note:disabled {
+  background-color: #444; /* Disabled button gray */
+  cursor: not-allowed;
+}
+
+.create-note-container .btn-create-note:hover:not(:disabled) {
+  background-color: #333; /* Slightly darker button on hover */
+  color: white;
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .create-note-container {
+    padding: 20px;
+  }
+
+  /* Adjust heading font size for smaller screens */
+  .create-note-container h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Adjust input padding for smaller screens */
+  .create-note-container .form-group input,
+  .create-note-container .form-group textarea {
+    padding: 10px;
+  }
+
+  /* Adjust button padding and font size for smaller screens */
+  .create-note-container .btn-create-note {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}

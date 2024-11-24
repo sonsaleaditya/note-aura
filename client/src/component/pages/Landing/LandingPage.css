@@ -1,0 +1,58 @@
+/* Main container for the landing page */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Heading text styling */
+.landing-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Description text styling */
+.landing-description {
+  font-size: 1.25rem;
+  color: #ffffff; /* White text for description */
+  margin-bottom: 40px;
+}
+
+/* Button container for alignment */
+.landing-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Sign-in button styling */
+.btn-sign-in, .btn-sign-up {
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  border: 1px solid #000000; /* Black border */
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  border-radius: 8px;
+}
+
+/* Hover effect for buttons */
+.btn-sign-in:hover, .btn-sign-up:hover {
+  background-color: #000000; /* Black background on hover */
+  color: #ffffff; /* White text on hover */
+  border-color: #ffffff; /* White border on hover */
+}
+
+/* Focus outline for buttons */
+.btn-sign-in:focus, .btn-sign-up:focus {
+  outline: none;
+  border-color: #ffffff; /* White border on focus */
+}

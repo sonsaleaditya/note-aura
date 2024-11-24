@@ -1,0 +1,161 @@
+/* Note.css */
+
+/* Container for the entire notes section */
+.notes-container {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #000000; /* Black background for the app */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Subtle white shadow for separation */
+}
+
+/* Title styling */
+.notes-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ffffff; /* White title text for contrast */
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Adds a modern feel */
+}
+
+/* Grid layout for notes */
+.notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; /* Spacing between cards */
+}
+
+/* Individual note card styling */
+.note-card {
+  background-color: #1a1a1a; /* Light dark card color */
+  color: #ffffff; /* White text for readability */
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle glow for depth */
+  position: relative; /* For positioning delete button */
+}
+
+/* Note card hover effect */
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2); /* Stronger glow on hover */
+}
+
+/* Note title styling */
+.note-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Note content styling */
+.note-card p {
+  margin: 5px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cccccc; /* Slightly muted white for less prominent text */
+}
+
+/* Input and Textarea styling */
+.note-input,
+.note-textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #333333; /* Dark border */
+  border-radius: 6px;
+  background-color: #1a1a1a; /* Matches note card background */
+  color: #ffffff; /* White text for input fields */
+  font-size: 1rem;
+}
+
+.note-input:focus,
+.note-textarea:focus {
+  border-color: #ffffff; /* Highlight border on focus */
+  outline: none;
+}
+
+/* Button styling for update, edit, delete */
+.update-btn,
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ffffff; /* White border for clean look */
+  background-color: transparent;
+  color: #ffffff; /* White text for buttons */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button hover effects */
+.update-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+  background-color: #ffffff; /* Inverse hover color */
+  color: #000000; /* Black text on hover */
+}
+
+/* Add spacing for buttons in a row */
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+/* Add Note button */
+.add-note-btn {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-note-btn:hover {
+  background-color: #333333; /* Darker background on hover */
+  color: #ffffff; /* Inverse text on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Delete button now styled like edit button */
+.delete-btn {
+  padding: 10px 20px;
+  margin-top:   10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ffffff; /* White border for clean look */
+  background-color: transparent;
+  color: #ffffff; /* White text for buttons */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #ffffff; /* Inverse hover color */
+  color: #000000; /* Black text on hover */
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Matches card background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333; /* Slightly lighter for visibility */
+  border-radius: 5px;
+}

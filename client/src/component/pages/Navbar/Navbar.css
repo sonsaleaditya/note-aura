@@ -1,0 +1,92 @@
+/* Navbar container */
+.navbar-container {
+    height: 10vh; /* Adjust height as needed */
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between logo and navbar items */
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Logo Section */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo h1 {
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+   
+  }
+  
+  .logo img {
+    width: 40px; /* Adjust logo size */
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  /* Navbar items */
+  .navbar-items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align links to the right */
+    gap: 20px;
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Ensure no padding for the list */
+    margin: 0; /* Remove any default margin */
+  }
+  
+  /* Navbar link styling */
+  .navbar-items a {
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar-items a:hover {
+    color: lightgray;
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+  
+  /* Profile image in the navbar */
+  .navbar-items img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  /* Active link styling */
+  .navbar-items a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .navbar-container {
+      justify-content: center; /* Center the navbar items on small screens */
+    }
+  
+    .navbar-items {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .logo {
+      justify-content: center; /* Center the logo */
+    }
+  }
+   .logotext{
+    text-decoration: none;
+  }
