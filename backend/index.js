@@ -24,9 +24,10 @@ app.use('/api/v1/user',userRoute);
 app.use('/api/v1/notes',noteRoute);
 app.use('/api/v1/contact-us',contactRoute);
 
-app.get('/',(req,res)=>{
-    res.send('hello from server');
-})
+app.get('/', (req, res) => {
+    res.send(`The time is ${new Date().toLocaleString()}`);
+});
+
 
 
  app.listen(port,()=>{
