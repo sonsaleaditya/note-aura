@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Sign.css';
 import axios from 'axios';
+import { toast, ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -11,6 +14,8 @@ function SignUp() {
     confirmPassword: "",
   });
 
+  const navigate = useNavigate(); // Initialize navigate hook
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the form from reloading the page
 
@@ -19,8 +24,6 @@ function SignUp() {
         // Exclude confirmPassword field from the payload
         const { confirmPassword, ...dataToSend } = formData;
 
-        //  console.log("Payload being sent:", dataToSend);
-
         // Send the API request
         const response = await axios.post(
           `${import.meta.env.VITE_API_BASE_URL}/user/sign-up`,
@@ -28,24 +31,104 @@ function SignUp() {
         );
 
         if (response.data.success) {
-          alert('User created successfully!');
+          // Success Toast
+          toast.success("🎉 User created successfully!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            transition: Slide,
+            style: {
+              backgroundColor: "#28a745", // Green background
+              color: "#fff", // White text
+              fontWeight: "bold",
+              borderRadius: "8px",
+              textAlign: "center",
+            },
+          });
+
+          // Redirect to the sign-in page after successful signup
+          setTimeout(() => {
+            navigate('/sign-in');
+          }, 3000); // Redirect after 3 seconds (to allow the toast to be visible)
         } else {
-          alert(`Failed: ${response.data.msg}`);
+          // Error Toast
+          toast.error(`❌ Failed: ${response.data.msg}`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            transition: Slide,
+            style: {
+              backgroundColor: "#dc3545", // Red background
+              color: "#fff", // White text
+              fontWeight: "bold",
+              borderRadius: "8px",
+              textAlign: "center",
+            },
+          });
         }
       } catch (error) {
-        // Check if error contains a response and a message
+        // Handle unexpected errors
         if (error.response && error.response.data && error.response.data.msg) {
-          alert(`Error: ${error.response.data.msg}`);
+          toast.error(`❌ Error: ${error.response.data.msg}`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            transition: Slide,
+            style: {
+              backgroundColor: "#dc3545", // Red background
+              color: "#fff", // White text
+              fontWeight: "bold",
+              borderRadius: "8px",
+              textAlign: "center",
+            },
+          });
         } else {
-          alert("An unexpected error occurred. Please try again.");
+          toast.error("❌ An unexpected error occurred. Please try again.", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            transition: Slide,
+            style: {
+              backgroundColor: "#dc3545", // Red background
+              color: "#fff", // White text
+              fontWeight: "bold",
+              borderRadius: "8px",
+              textAlign: "center",
+            },
+          });
         }
-        // console.error("Error occurred:", error);
       }
     } else {
-      alert("Password does not match Confirm Password.");
+      toast.error("❌ Password does not match Confirm Password.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        transition: Slide,
+        style: {
+          backgroundColor: "#dc3545", // Red background
+          color: "#fff", // White text
+          fontWeight: "bold",
+          borderRadius: "8px",
+          textAlign: "center",
+        },
+      });
     }
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,6 +140,7 @@ function SignUp() {
 
   return (
     <div className="center-container">
+      <h2>Sign Up</h2>
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="fName">First Name</label>
         <input
@@ -110,6 +194,7 @@ function SignUp() {
 
         <button type="submit">Submit</button>
       </form>
+      <ToastContainer />
     </div>
   );
 }

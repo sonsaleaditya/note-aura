@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer for notifications
+import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -27,6 +29,28 @@ function Profile() {
   const handleLogout = () => {
     // Remove token and navigate to sign-in
     localStorage.removeItem('authToken');
+    
+    // Show a green toast for successful logout
+    toast.success("🎉 Successfully logged out!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      style: {
+        backgroundColor: "#28a745", // Green background
+        color: "#fff", // White text
+        fontWeight: "bold",
+        borderRadius: "8px",
+        textAlign: "center",
+      },
+    });
+
+    // Refresh page after logout
+    window.location.reload();
+
+    // Navigate to sign-in page
     navigate('/sign-in');
   };
 
@@ -56,6 +80,9 @@ function Profile() {
       ) : (
         <p>Loading profile...</p>
       )}
+
+      {/* Toast container for displaying toasts */}
+      <ToastContainer />
     </div>
   );
 }

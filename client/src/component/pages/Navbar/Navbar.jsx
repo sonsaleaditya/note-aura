@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Import jwt-decode to decode the token
+import {jwtDecode} from 'jwt-decode'; // Import jwt-decode to decode the token
 
 function Navbar() {
   const [userInfo, setUserInfo] = useState(null);
   const [isTokenAvailable, setIsTokenAvailable] = useState(false);
 
-  useEffect(() => {
+  const updateNavbar = () => {
     const token = localStorage.getItem('authToken');
     if (token) {
       setIsTokenAvailable(true);
@@ -17,8 +17,24 @@ function Navbar() {
       } catch (error) {
         console.error("Error decoding token", error);
       }
+    } else {
+      setIsTokenAvailable(false);
+      setUserInfo(null);
     }
-  }, []); // Run this effect once when the component mounts
+  };
+
+  useEffect(() => {
+    // Run initially to check for token
+    updateNavbar();
+
+    // Add a listener for changes in localStorage
+    window.addEventListener('storage', updateNavbar);
+
+    // Cleanup listener when the component unmounts
+    return () => {
+      window.removeEventListener('storage', updateNavbar);
+    };
+  }, []);
 
   return (
     <nav className="navbar-container">
@@ -31,19 +47,12 @@ function Navbar() {
 
       {/* Navbar Links */}
       <ul className="navbar-items">
-
-
-        {
-          isTokenAvailable && userInfo ? (
-            <>
-              <NavLink to={isTokenAvailable ? "/home" : "/"} className="logotext">
-              </NavLink>
-              <li><NavLink to="/create-note">Create Note</NavLink></li>
-
-              <li><NavLink to="/view-notes">View Notes</NavLink></li>
-            </>
-          ) : null
-        }
+        {isTokenAvailable && userInfo ? (
+          <>
+            <li><NavLink to="/create-note">Create Note</NavLink></li>
+            <li><NavLink to="/view-notes">View Notes</NavLink></li>
+          </>
+        ) : null}
 
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>

@@ -13,13 +13,21 @@ router.put('/update-user',auth,isUser,updateUser);
 router.delete('/delete-user/:id',auth,isAdmin,deleteUser);
 router.get('/fetch-all-users',auth,isAdmin,fetchAllUserInfo);
 
-router.post('/auth',auth,(req,res)=>{
+// router.post('/auth',auth,(req,res)=>{
+//     return res.status(200).json({
+//         succes: true,
+//         msg : "verified user !!"
+//     })
+// })
+
+ router.post('/isUser',auth,isUser);
+ router.post('/isAdmin',auth,isAdmin,(req,res)=>{
+
     return res.status(200).json({
         succes: true,
         msg : "verified user !!"
-    })
-})
+    }
+)
+ });
 
-router.post('/isUser',auth,isUser);
-router.post('/isAdmin',auth,isAdmin);
 module.exports = router;

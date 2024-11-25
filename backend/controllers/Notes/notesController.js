@@ -225,7 +225,7 @@ const fetchNotes = async (req, res) => {
 
         if (!profile || !profile.notes || profile.notes.length === 0) {
             return res.status(404).json({
-                success: false,
+                success: true,
                 msg: "Notes not available!",
             });
         }
@@ -237,6 +237,7 @@ const fetchNotes = async (req, res) => {
             msg: "Notes fetched successfully!",
             notes: profile.notes, // Return the notes array
         });
+        
     } catch (error) {
         return res.status(500).json({
             success: false,

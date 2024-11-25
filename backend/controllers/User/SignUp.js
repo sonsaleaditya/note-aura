@@ -8,7 +8,7 @@ const signUp = async (req, res) => {
 
         if (!fName || !lName || !email || !password) {
             return res.status(400).json({
-                succes: false,
+                success: false,
                 msg: "All Fields Are Required!!"
             })
         }
@@ -17,7 +17,7 @@ const signUp = async (req, res) => {
         const user = await userShema.findOne({ email: email });
         if (user) {
             return res.status(409).json({
-                succes: false,
+                success: false,
                 msg: "User Already Exist!!"
             })
         }
@@ -32,7 +32,7 @@ const signUp = async (req, res) => {
         const profile = await profileSchema.create({ userId: registeredUser._id, img: img });
 
        return res.status(200).json({
-            succes: true,
+            success: true,
             msg: "User Registered Succefully!!"
             ,
             profile: profile
@@ -40,7 +40,7 @@ const signUp = async (req, res) => {
 
     } catch (error) {
         return res.status(500).json({
-            succes: false,
+            success: false,
             msg: "Error Occured While Signing Up!!"
         })
     }
@@ -49,7 +49,7 @@ const signUp = async (req, res) => {
 const healthCheck = (req, res) => {
     try {
         res.status(200).json({
-            succes: true,
+            success: true,
             msg: "everything good here !"
         })
     } catch (error) {
