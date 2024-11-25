@@ -22,7 +22,7 @@ const NotesSchema = new mongoose.Schema({
         default: Date.now()
     }
     ,
-    reminderTime: {
+    reminder: {
         type : Date,
         
     }
